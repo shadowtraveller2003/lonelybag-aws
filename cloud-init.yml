@@ -1,0 +1,62 @@
+
+#cloud-config
+# Cloud-init script for automatic setup of The Lonely Bag App on EC2
+
+package_update: true
+package_upgrade: true
+
+packages:
+  - git
+  - curl
+  - unzip
+  - htop
+
+# Install Docker
+runcmd:
+  # Install Docker
+  - curl -fsSL https://get.docker.com -o get-docker.sh
+  - sh get-docker.sh
+  - usermod -aG docker ubuntu
+  - systemctl start docker
+  - systemctl enable docker
+  
+  # Install Docker Compose
+  - curl -L "https://github.com/docker/compose/releases/download/v2.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  - chmod +x /usr/local/bin/docker-compose
+  
+  # Clone the repository (replace with your actual repo URL)
+  - cd /home/ubuntu
+  - git clone https://github.com/YOUR_USERNAME/the-lonely-bag-app.git
+  - cd the-lonely-bag-app
+  - chown -R ubuntu:ubuntu /home/ubuntu/the-lonely-bag-app
+  
+  # Build and run the application
+  - sudo -u ubuntu docker build -t the-lonely-bag:latest .
+  - sudo -u ubuntu docker run -d --name the-lonely-bag-container -p 80:80 --restart unless-stopped the-lonely-bag:latest
+
+write_files:
+  - path: /home/ubuntu/health-check.sh
+    content: |
+      #!/bin/bash
+      # Simple health check script
+      if curl -f http://localhost:80 > /dev/null 2>&1; then
+        echo "✅ App is running"
+      else
+        echo "❌ App is down, restarting..."
+        docker restart the-lonely-bag-container
+      fi
+    permissions: '0755'
+    owner: ubuntu:ubuntu
+
+# Set up a cron job for health checks
+runcmd:
+  - echo "*/5 * * * * /home/ubuntu/health-check.sh" | crontab -u ubuntu -
+
+final_message: |
+  The Lonely Bag application has been automatically deployed!
+  Access it via your EC2 public IP address.
+  
+  Useful commands:
+  - Check app status: docker ps
+  - View logs: docker logs the-lonely-bag-container
+  - Restart app: docker restart the-lonely-bag-container

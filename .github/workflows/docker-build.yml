@@ -1,0 +1,35 @@
+
+name: Docker Build and Test
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+      
+    - name: Build Docker image
+      run: |
+        docker build -t the-lonely-bag:test .
+        
+    - name: Test Docker container
+      run: |
+        docker run -d --name test-container -p 3000:80 the-lonely-bag:test
+        sleep 10
+        curl -f http://localhost:3000 || exit 1
+        docker stop test-container
+        docker rm test-container
+        
+    - name: Clean up
+      run: |
+        docker rmi the-lonely-bag:test
