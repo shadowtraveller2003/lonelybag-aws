@@ -26,7 +26,7 @@ const FoodTracker = () => {
 
   const categories = ['Fruits', 'Vegetables', 'Dairy', 'Grains', 'Meat', 'Others'];
 
-  const getStatusColor = (status) => {
+  const getStatusColor = (status: string) => {
     switch (status) {
       case 'fresh': return 'text-green-600 bg-green-100';
       case 'expiring': return 'text-yellow-600 bg-yellow-100';
@@ -35,10 +35,10 @@ const FoodTracker = () => {
     }
   };
 
-  const getStatusFromDate = (expiryDate) => {
+  const getStatusFromDate = (expiryDate: string) => {
     const today = new Date();
     const expiry = new Date(expiryDate);
-    const diffTime = expiry - today;
+    const diffTime = expiry.getTime() - today.getTime();
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
     if (diffDays < 0) return 'expired';
@@ -72,7 +72,7 @@ const FoodTracker = () => {
     });
   };
 
-  const removeFoodItem = (id) => {
+  const removeFoodItem = (id: number) => {
     setFoodItems(foodItems.filter(item => item.id !== id));
     toast({
       title: "Item Removed",
