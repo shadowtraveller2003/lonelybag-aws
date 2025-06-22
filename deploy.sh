@@ -36,10 +36,27 @@ print_error() {
 # Check if Docker is installed
 if ! command -v docker &> /dev/null; then
     print_error "Docker is not installed. Installing Docker..."
-    curl -fsSL https://get.docker.com -o get-docker.sh
-    sudo sh get-docker.sh
+    
+    # Update package index
+    sudo apt-get update
+    
+    # Install prerequisites
+    sudo apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release
+    
+    # Add Docker's official GPG key
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+    
+    # Set up stable repository
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    
+    # Install Docker Engine
+    sudo apt-get update
+    sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+    
+    # Add current user to docker group
     sudo usermod -aG docker $USER
-    print_status "Docker installed successfully. Please log out and log back in."
+    
+    print_status "Docker installed successfully. Please log out and log back in, then run this script again."
     exit 1
 fi
 
@@ -48,6 +65,9 @@ if ! docker info &> /dev/null; then
     print_error "Docker is not running. Starting Docker..."
     sudo systemctl start docker
     sudo systemctl enable docker
+    
+    # Wait a moment for Docker to start
+    sleep 3
 fi
 
 print_status "Stopping existing container (if any)..."
@@ -70,7 +90,8 @@ sleep 5
 # Check if container is running
 if docker ps | grep -q $CONTAINER_NAME; then
     print_status "✅ Application deployed successfully!"
-    print_status "🌐 Access the app at: http://$(curl -s ifconfig.me):$PORT"
+    print_status "🌐 Access the app at: http://localhost:$PORT"
+    print_status "🌐 Or via IP: http://$(hostname -I | awk '{print $1}'):$PORT"
     print_status "🐳 Container logs: docker logs $CONTAINER_NAME"
 else
     print_error "❌ Deployment failed. Check Docker logs:"
