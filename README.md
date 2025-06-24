@@ -3,7 +3,7 @@
 
 **Where Food Selects You** - An innovative food waste tracking application built with React, TypeScript, and modern web technologies.
 
-## 🎯 Assignment Overview -  ✅
+## 🎯 Assignment Overview 
 
 This project demonstrates complete DevOps lifecycle including containerization, cloud deployment, and automation on AWS EC2.
 
@@ -14,10 +14,10 @@ This project demonstrates complete DevOps lifecycle including containerization, 
 - **Frontend**: React 18 + TypeScript + Vite
 - **Styling**: Tailwind CSS + Shadcn UI
 - **Containerization**: Docker + Nginx
-- **Deployment**: AWS EC2 with automation ✅
+- **Deployment**: AWS EC2 with automation 
 - **CI/CD**: GitHub integration
 
-## 📋 Assignment Deliverables -
+## 📋 Assignment Deliverables 
 
 ### ✅ 1. GitHub Repository Setup 
 - Repository: Complete source code with version control
@@ -122,7 +122,7 @@ docker-compose down
 - **Application**: ACCESSIBLE ✅
 - **Container**: HEALTHY ✅
 
-### Step 1: EC2 Instance - COMPLETED ✅
+### Step 1: EC2 Instance - ✅
 
 **Instance Configuration:**
 - **Name**: `the-lonely-bag-server`
@@ -131,7 +131,7 @@ docker-compose down
 - **Security Group**: HTTP (80), HTTPS (443), SSH (22) ✅
 - **Status**: Running and accessible
 
-### Step 2: Automated Setup - COMPLETED ✅
+### Step 2: Automated Setup - ✅
 
 The deployment was completed using our automated deploy script:
 
