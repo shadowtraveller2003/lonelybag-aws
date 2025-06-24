@@ -1,9 +1,9 @@
 
-# The Lonely Bag - DevOps Assignment ✅ SUCCESSFULLY DEPLOYED
+# The Lonely Bag - DevOps Assignment ✅ 
 
 **Where Food Selects You** - An innovative food waste tracking application built with React, TypeScript, and modern web technologies.
 
-## 🎯 Assignment Overview - COMPLETED ✅
+## 🎯 Assignment Overview -  ✅
 
 This project demonstrates complete DevOps lifecycle including containerization, cloud deployment, and automation on AWS EC2.
 
@@ -17,26 +17,26 @@ This project demonstrates complete DevOps lifecycle including containerization, 
 - **Deployment**: AWS EC2 with automation ✅
 - **CI/CD**: GitHub integration
 
-## 📋 Assignment Deliverables - ALL COMPLETED ✅
+## 📋 Assignment Deliverables -
 
-### ✅ 1. GitHub Repository Setup - DONE
+### ✅ 1. GitHub Repository Setup 
 - Repository: Complete source code with version control
 - Comprehensive documentation
 - All files committed and pushed
 
-### ✅ 2. Dockerization - DONE
+### ✅ 2. Dockerization 
 - **Dockerfile**: Multi-stage build with Node.js and Nginx
 - **docker-compose.yml**: Development environment setup
 - **nginx.conf**: Production-ready web server configuration
 - **Container running successfully**
 
-### ✅ 3. AWS EC2 Deployment - SUCCESSFULLY DEPLOYED
+### ✅ 3. AWS EC2 Deployment 
 - EC2 instance configured and running
 - Docker deployment on cloud infrastructure
 - **Application accessible via public IP**
 - Health checks passing
 
-### ✅ 4. Automation & Bonus Features - IMPLEMENTED
+### ✅ 4. Automation & Bonus Features 
 - **cloud-init.yml**: Automated EC2 setup on boot
 - **deploy.sh**: One-click deployment script (WORKING)
 - **IAM roles**: S3 integration capabilities
@@ -55,15 +55,15 @@ This project demonstrates complete DevOps lifecycle including containerization, 
 ### Prerequisites ✅
 - Node.js 18+ and npm
 - Docker and Docker Compose
-- AWS Account (free tier eligible)
+- AWS Account 
 - Git
 
 ### Local Development
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/YOUR_USERNAME/the-lonely-bag-app.git
-cd the-lonely-bag-app
+git clone https://github.com/shadowtraveller2003/lonelybag-aws.git
+cd lonelybag-aws
 ```
 
 2. **Install dependencies**
@@ -81,7 +81,7 @@ npm run dev
 http://localhost:8080
 ```
 
-## 🐳 Docker Deployment - SUCCESSFULLY COMPLETED ✅
+## 🐳 Docker Deployment - ✅
 
 ### Deployment Status
 - ✅ Docker image built successfully
@@ -227,19 +227,10 @@ docker stats the-lonely-bag-container
 - ✅ Docker build verification
 - ✅ Container health checks
 
-## 📸 Assignment Screenshots - CAPTURED ✅
-
-**Required screenshots completed:**
-1. ✅ **EC2 Dashboard** - Instance running
-2. ✅ **SSH Terminal Session** - Deployment commands executed
-3. ✅ **Application Running** - Accessible via public EC2 IP
-4. ✅ **Docker Container Status** - Container healthy and running
-5. ✅ **Local Docker Setup** - Development environment working
-
 ## 🌟 Features Successfully Deployed ✅
 
 - ✅ **Landing Page**: Modern hero section with call-to-action
-- ✅ **Dashboard**: Analytics and sustainability metrics
+- ✅ **Dashboard**: Analytics and sustainability metrics (with dummy data)
 - ✅ **Food Tracker**: Inventory management with expiry tracking
 - ✅ **Community**: User engagement and sharing features
 - ✅ **Admin Panel**: System management interface
@@ -247,7 +238,7 @@ docker stats the-lonely-bag-container
 - ✅ **Real-time Updates**: Dynamic status tracking
 - ✅ **Toast Notifications**: User feedback system
 
-## 🛠️ Technology Stack - FULLY IMPLEMENTED ✅
+## 🛠️ Technology Stack 
 
 - ✅ **Frontend Framework**: React 18 with TypeScript
 - ✅ **Build Tool**: Vite
@@ -260,7 +251,7 @@ docker stats the-lonely-bag-container
 - ✅ **Cloud Platform**: AWS EC2
 - ✅ **Version Control**: Git/GitHub
 
-## 📈 Performance Optimizations - ACTIVE ✅
+## 📈 Performance Optimizations 
 
 - ✅ Multi-stage Docker build for minimal image size
 - ✅ Nginx serving static files with gzip compression
@@ -268,7 +259,7 @@ docker stats the-lonely-bag-container
 - ✅ Optimized bundle splitting
 - ✅ CDN-ready asset structure
 
-## 🔒 Security Best Practices - IMPLEMENTED ✅
+## 🔒 Security Best Practices 
 
 - ✅ No sensitive data in code
 - ✅ IAM roles instead of hardcoded credentials
@@ -276,25 +267,10 @@ docker stats the-lonely-bag-container
 - ✅ Regular dependency updates
 - ✅ Container running with proper permissions
 
-## 📝 Assignment Checklist - 100% COMPLETE ✅
-
-- ✅ GitHub repository created and shared
-- ✅ Dockerfile implemented and tested
-- ✅ Application running locally in Docker
-- ✅ EC2 instance launched and configured
-- ✅ Application deployed on EC2 and accessible
-- ✅ Screenshots captured and documented
-- ✅ README.md with comprehensive instructions
-- ✅ Cloud-init automation implemented
-- ✅ Deploy script created and tested successfully
-- ✅ IAM roles configured for S3 access
-- ✅ Documentation complete and up-to-date
 
 ## 🎉 DEPLOYMENT SUCCESS SUMMARY
 
-**🚀 MISSION ACCOMPLISHED!**
-
-The Lonely Bag application has been successfully:
+The Lonely Bag application has been successfully deployed:
 - ✅ **Built** using modern React/TypeScript stack
 - ✅ **Containerized** with Docker and Nginx
 - ✅ **Deployed** to AWS EC2 cloud infrastructure
@@ -315,23 +291,6 @@ The Lonely Bag application has been successfully:
 3. Commit changes (`git commit -m 'Add amazing feature'`)
 4. Push to branch (`git push origin feature/amazing-feature`)
 5. Open Pull Request
-
-## 📞 Support & Troubleshooting
-
-For issues related to:
-- **Application**: Create GitHub issue
-- **AWS Deployment**: Check CloudTrail logs
-- **Docker**: Review container logs with `docker logs the-lonely-bag-container`
-- **Assignment**: All requirements completed successfully ✅
-
-## 🏆 Achievement Unlocked
-
-**DevOps Master** - Successfully completed full-stack deployment with:
-- Modern web application development
-- Container orchestration
-- Cloud infrastructure management
-- Automated deployment pipelines
-- Production-ready security practices
 
 ## 📄 License
 
